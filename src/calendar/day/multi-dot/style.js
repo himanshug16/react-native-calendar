@@ -1,25 +1,26 @@
-import {StyleSheet, Platform} from 'react-native';
+import { StyleSheet, Platform } from 'react-native';
 import * as defaultStyle from '../../../style';
 
 const STYLESHEET_ID = 'stylesheet.day.multiDot';
 
-export default function styleConstructor(theme={}) {
-  const appStyle = {...defaultStyle, ...theme};
+export default function styleConstructor(theme = {}) {
+  const appStyle = { ...defaultStyle, ...theme };
   return StyleSheet.create({
     base: {
       // width: 32,
-      width: 55,
+      width: 53,
       // height: 32,
       height: 55,
-      borderWidth :1,
+      borderWidth: 1,
       // border
-      borderTopWidth : 0,
-      borderRightWidth : 0,
-      borderColor : '#e0e0e0',
-      alignItems: 'center'
+      borderTopWidth: 0,
+      borderRightWidth: 0,
+      borderColor: '#e0e0e0',
+      // alignItems: 'center'
     },
     text: {
       marginTop: 4,
+      marginLeft: 4,
       fontSize: appStyle.textDayFontSize,
       fontFamily: appStyle.textDayFontFamily,
       fontWeight: appStyle.textDayFontWeight,
@@ -42,34 +43,25 @@ export default function styleConstructor(theme={}) {
     selectedText: {
       color: appStyle.selectedDayTextColor
     },
-    SatTextStyle :{
-      color: 'blue'
+    SatTextStyle: {
+      color: appStyle.SaturdayTextColor
     },
-    SunTextStyle :{
-      color : 'red'
+    SunTextStyle: {
+      color: appStyle.SundayTextColor
     },
     disabledText: {
       color: appStyle.textDisabledColor
     },
-    // dot: {
-    //   width: 4,
-    //   height: 4,
-    //   marginTop: 1,
-    //   marginLeft: 1,
-    //   marginRight: 1,
-    //   borderRadius: 2,
-    //   opacity: 0
-    // },
     dot: {
       width: 8,
       height: 8,
       marginTop: 4,
-      marginLeft: 1,
+      marginLeft: 12,
       marginRight: 1,
       borderRadius: 4,
       opacity: 0
     },
-    
+
     visibleDot: {
       opacity: 1,
       backgroundColor: appStyle.dotColor

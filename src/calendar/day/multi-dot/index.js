@@ -83,11 +83,11 @@ class Day extends Component {
       textStyle.push(this.style.todayText);
     }
     else if (this.props.state == 'isSat') {
-      // containerStyle.push(this.style.today);
+      containerStyle.push(this.style.today);
       textStyle.push(this.style.SatTextStyle);
     }
     else if (this.props.state == 'isSun') {
-      // containerStyle.push(this.style.today);
+      containerStyle.push(this.style.today);
       textStyle.push(this.style.SunTextStyle);
     }
     

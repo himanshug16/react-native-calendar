@@ -81,6 +81,14 @@ class Day extends Component {
       textStyle.push(this.style.todayText);
       dotStyle.push(this.style.todayDot);
     }
+    else if (this.props.state == 'isSat') {
+      containerStyle.push(this.style.today);
+      textStyle.push(this.style.SatTextStyle);
+    }
+    else if (this.props.state == 'isSun') {
+      containerStyle.push(this.style.today);
+      textStyle.push(this.style.SunTextStyle);
+    }
 
     return (
       <TouchableOpacity
