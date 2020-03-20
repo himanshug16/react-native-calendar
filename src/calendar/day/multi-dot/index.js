@@ -69,6 +69,7 @@ class Day extends Component {
     console.log(this.props.state, 'this.props.statethis.props.statethis.props.statethis.props.state');
     const dot = this.renderDots(marking);
     console.log(this.props, 'isDisDisDisDisDisDisDisDisDisD')
+    // alert(this.props.state)
     if (marking.selected) {
       containerStyle.push(this.style.selected);
       textStyle.push(this.style.selectedText);
@@ -83,11 +84,12 @@ class Day extends Component {
       textStyle.push(this.style.todayText);
     }
     else if (this.props.state == 'isSat') {
-      containerStyle.push(this.style.today);
+      
+      // containerStyle.push(this.style.today);
       textStyle.push(this.style.SatTextStyle);
     }
     else if (this.props.state == 'isSun') {
-      containerStyle.push(this.style.today);
+      // containerStyle.push(this.style.today);
       textStyle.push(this.style.SunTextStyle);
     }
     

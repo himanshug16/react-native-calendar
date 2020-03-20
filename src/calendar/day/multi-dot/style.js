@@ -56,7 +56,7 @@ export default function styleConstructor(theme = {}) {
       width: 8,
       height: 8,
       marginTop: 4,
-      marginLeft: 12,
+      marginLeft: 2,
       marginRight: 1,
       borderRadius: 4,
       opacity: 0

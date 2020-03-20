@@ -165,9 +165,7 @@ class Calendar extends Component {
     } else if (dateutils.sameDate(day, XDate())) {
       state = 'today';
     }
-    // else if (dateutils.sameMonth(day, this.state.currentMonth)) {
-    //   state = 'isSat';
-    // }
+    
     else if (this.props.markedDates && this.props.markedDates[day.toString('MM-dd-yyyy')] && this.props.markedDates[day.toString('MM-dd-yyyy')].isSat) {
       state = 'isSat'
       console.log(this.state.currentMonth, day, this.props.markedDates[day.toString('MM-dd-yyyy')], 'dateutils.sameMonth(day, this.state.currentMonth)dateutils.sameMonth(day, this.state.currentMonth)')
@@ -176,9 +174,15 @@ class Calendar extends Component {
       state = 'isSun'
       console.log(this.state.currentMonth, day, this.props.markedDates[day.toString('MM-dd-yyyy')], 'dateutils.sameMonth(day, this.state.currentMonth)dateutils.sameMonth(day, this.state.currentMonth)')
     }
-    // else if (this.props.markedDates[day('22-03-2020'), this.state.currentMonth]) {
-    //   state = 'isSat';
+    // else if (this.props.markedDates && this.props.markedDates[day.toString('MM/dd/yyyy')] && this.props.markedDates[day.toString('MM/dd/yyyy')].isSat) {
+    //   state = 'isSat'
+    //   console.log(this.state.currentMonth, day, this.props.markedDates[day.toString('MM-dd-yyyy')], 'dateutils.sameMonth(day, this.state.currentMonth)dateutils.sameMonth(day, this.state.currentMonth)')
     // }
+    // else if (this.props.markedDates && this.props.markedDates[day.toString('MM/dd/yyyy')] && this.props.markedDates[day.toString('MM/dd/yyyy')].isSun) {
+    //   state = 'isSun'
+    //   console.log(this.state.currentMonth, day, this.props.markedDates[day.toString('MM-dd-yyyy')], 'dateutils.sameMonth(day, this.state.currentMonth)dateutils.sameMonth(day, this.state.currentMonth)')
+    // }
+    
 
     if (!dateutils.sameMonth(day, this.state.currentMonth) && this.props.hideExtraDays) {
       return (<View key={id} style={{ flex: 1 }} />);
