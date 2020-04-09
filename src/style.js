@@ -3,7 +3,7 @@ import { Platform } from 'react-native';
 export const foregroundColor = '#ffffff';
 export const backgroundColor = '#f4f4f4'; // Agenda's reservations bg color
 export const separatorColor = '#e8e9ec'; // not in use
-
+export const todayBackgroundLitColor= '#FDEFD4';
 export const processedColor = '#a7e0a3';
 export const processingColor = '#ffce5c';
 export const failedColor = '#f67e7e';
@@ -23,8 +23,7 @@ export const textMonthFontWeight = '300';
 export const textDayHeaderFontWeight = undefined;
 export const todayButtonFontWeight = '600';
 
-// export const textDayFontSize = 16;
-export const textDayFontSize = 20;
+export const textDayFontSize = 16;
 export const textMonthFontSize = 16;
 export const textDayHeaderFontSize = 13;
 export const todayButtonFontSize = 14;
@@ -37,7 +36,8 @@ export const calendarBackground = foregroundColor;
 export const textSectionTitleColor = '#b6c1cd';
 export const selectedDayBackgroundColor = textLinkColor;
 export const selectedDayTextColor = foregroundColor;
-export const todayBackgroundColor = undefined;
+
+export const todayBackgroundColor = todayBackgroundLitColor;
 export const todayTextColor = textLinkColor;
 export const dayTextColor = textDefaultColor;
 export const textDisabledColor = '#d9e1e8';

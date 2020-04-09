@@ -8,10 +8,10 @@ export default function styleConstructor(theme = {}) {
   return StyleSheet.create({
     base: {
       // width: 32,
-      width: 53,
+      width: Platform.OS == 'android' ? 53 : 58 ,
       // height: 32,
       height: 55,
-      borderWidth: 1,
+      borderWidth: 0.4,
       // border
       borderTopWidth: 0,
       borderRightWidth: 0,
@@ -22,7 +22,7 @@ export default function styleConstructor(theme = {}) {
       marginTop: 4,
       marginLeft: 4,
       // fontSize: appStyle.textDayFontSize,
-      fontSize: 13  ,
+      fontSize : 15,
       fontFamily: appStyle.textDayFontFamily,
       fontWeight: appStyle.textDayFontWeight,
       color: appStyle.dayTextColor,
