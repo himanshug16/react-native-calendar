@@ -46,7 +46,7 @@ class Day extends Component {
     const containerStyle = [this.style.base];
     const textStyle = [this.style.text];
     const dotStyle = [this.style.dot];
-
+    // console.log(this.props.state,'')
     let marking = this.props.marking || {};
     if (marking && marking.constructor === Array && marking.length) {
       marking = {
@@ -89,6 +89,11 @@ class Day extends Component {
       containerStyle.push(this.style.today);
       textStyle.push(this.style.SunTextStyle);
     }
+    // else if (this.props.state == 'isPreviousMonthSat') {
+    //   console.log('isPreviousMonthSatisPreviousMonthSatisPreviousMonthSatisPreviousMonthSatisPreviousMonthSatisPreviousMonthSat')
+    //   // containerStyle.push(this.style.today);
+    //   // textStyle.push(this.style.SunTextStyle);
+    // }
 
     return (
       <TouchableOpacity

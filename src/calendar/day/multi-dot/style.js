@@ -8,7 +8,7 @@ export default function styleConstructor(theme = {}) {
   return StyleSheet.create({
     base: {
       // width: 32,
-      width: Platform.OS == 'android' ? 53 : 58 ,
+      width: Platform.OS == 'android' ? 53 : 58  ,
       // height: 32,
       height: 55,
       borderWidth: 0.4,
@@ -22,7 +22,7 @@ export default function styleConstructor(theme = {}) {
       marginTop: 4,
       marginLeft: 4,
       // fontSize: appStyle.textDayFontSize,
-      fontSize : 15,
+      fontSize : 13,
       fontFamily: appStyle.textDayFontFamily,
       fontWeight: appStyle.textDayFontWeight,
       color: appStyle.dayTextColor,
@@ -50,6 +50,19 @@ export default function styleConstructor(theme = {}) {
     SunTextStyle: {
       color: appStyle.SundayTextColor
     },
+
+    PreviousMonthSunTextStyle: {
+      color: appStyle.PreviousMonthSundayTextColor
+    },
+    PreviousMonthSatTextStyle: {
+      color: appStyle.PreviousMonthSaturdayTextColor
+    },
+    NextMonthSunTextStyle: {
+      color: appStyle.PreviousMonthSundayTextColor
+    },
+    NextMonthSatTextStyle: {
+      color: appStyle.PreviousMonthSaturdayTextColor
+    },
     disabledText: {
       color: appStyle.textDisabledColor
     },
@@ -62,7 +75,6 @@ export default function styleConstructor(theme = {}) {
       borderRadius: 4,
       opacity: 0
     },
-
     visibleDot: {
       opacity: 1,
       backgroundColor: appStyle.dotColor

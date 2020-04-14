@@ -67,6 +67,7 @@ export default function styleConstructor(theme={}) {
     SunTextStyle :{
       color : appStyle.SundayTextColor
     },
+    
     ...(theme[STYLESHEET_ID] || {})
   });
 }

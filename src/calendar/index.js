@@ -155,25 +155,49 @@ class Calendar extends Component {
     const minDate = parseDate(this.props.minDate);
     const maxDate = parseDate(this.props.maxDate);
     let state = '';
-    console.log("this.props.markedDates", this.props.markedDates, day.toString('MM-dd-yyyy'))
+    console.log("this.props.markedDates++++++++++++++++++++++++++++++++", this.props.markedDates, this.props.markedDates[day.toString('MM-dd-yyyy')], day.toString('MM-dd-yyyy'))
     if (this.props.disabledByDefault) {
       state = 'disabled';
-    } else if ((minDate && !dateutils.isGTE(day, minDate)) || (maxDate && !dateutils.isLTE(day, maxDate))) {
+    }
+    else if (this.props.markedDates && this.props.markedDates[day.toString('MM-dd-yyyy')] && this.props.markedDates[day.toString('MM-dd-yyyy')].isPreviousMonthSat) {
+      state = 'isPreviousMonthSat'
+      console.log(this.state.currentMonth, day, this.props.markedDates[day.toString('MM-dd-yyyy')], 'dateutils.sameMonthfgbdfbdfbdfbdfbf(day, this.state.currentMonth)dateutils.sameMonth(day, this.state.currentMonth)')
+    }
+    else if (this.props.markedDates && this.props.markedDates[day.toString('MM-dd-yyyy')] && this.props.markedDates[day.toString('MM-dd-yyyy')].isPreviousMonthSun) {
+      state = 'isPreviousMonthSun'
+      console.log(this.state.currentMonth, day, this.props.markedDates[day.toString('MM-dd-yyyy')], 'dateut898989898989898')
+    }
+
+    else if (this.props.markedDates && this.props.markedDates[day.toString('MM-dd-yyyy')] && this.props.markedDates[day.toString('MM-dd-yyyy')].isNextMonthSat) {
+      state = 'isNextMonthSat'
+      console.log(this.state.currentMonth, day, this.props.markedDates[day.toString('MM-dd-yyyy')], 'dateutils.sameMonthfgbdfbdfbdfbdfbf(day, this.state.currentMonth)dateutils.sameMonth(day, this.state.currentMonth)')
+    }
+    else if (this.props.markedDates && this.props.markedDates[day.toString('MM-dd-yyyy')] && this.props.markedDates[day.toString('MM-dd-yyyy')].isNextMonthSun) {
+      state = 'isNextMonthSun'
+      console.log(this.state.currentMonth, day, this.props.markedDates[day.toString('MM-dd-yyyy')], 'dateut898989898989898')
+    }
+
+    else if ((minDate && !dateutils.isGTE(day, minDate)) || (maxDate && !dateutils.isLTE(day, maxDate))) {
       state = 'disabled';
-    } else if (!dateutils.sameMonth(day, this.state.currentMonth)) {
+    }
+
+    else if (!dateutils.sameMonth(day, this.state.currentMonth)) {
       state = 'disabled';
-    } else if (dateutils.sameDate(day, XDate())) {
+    }
+
+    else if (dateutils.sameDate(day, XDate())) {
       state = 'today';
     }
-    
+
     else if (this.props.markedDates && this.props.markedDates[day.toString('MM-dd-yyyy')] && this.props.markedDates[day.toString('MM-dd-yyyy')].isSat) {
       state = 'isSat'
-      console.log(this.state.currentMonth, day, this.props.markedDates[day.toString('MM-dd-yyyy')], 'dateutils.sameMonth(day, this.state.currentMonth)dateutils.sameMonth(day, this.state.currentMonth)')
+      console.log(this.state.currentMonth, day, this.props.markedDates[day.toString('MM-dd-yyyy')], 'dateutils.sameMonth(dadfdfdfy, this.state.currentMonth)dateutils.sameMonth(day, this.state.currentMonth)')
     }
     else if (this.props.markedDates && this.props.markedDates[day.toString('MM-dd-yyyy')] && this.props.markedDates[day.toString('MM-dd-yyyy')].isSun) {
       state = 'isSun'
       console.log(this.state.currentMonth, day, this.props.markedDates[day.toString('MM-dd-yyyy')], 'dateutils.sameMonth(day, this.state.currentMonth)dateutils.sameMonth(day, this.state.currentMonth)')
     }
+
     // else if (this.props.markedDates && this.props.markedDates[day.toString('MM/dd/yyyy')] && this.props.markedDates[day.toString('MM/dd/yyyy')].isSat) {
     //   state = 'isSat'
     //   console.log(this.state.currentMonth, day, this.props.markedDates[day.toString('MM-dd-yyyy')], 'dateutils.sameMonth(day, this.state.currentMonth)dateutils.sameMonth(day, this.state.currentMonth)')
@@ -182,7 +206,7 @@ class Calendar extends Component {
     //   state = 'isSun'
     //   console.log(this.state.currentMonth, day, this.props.markedDates[day.toString('MM-dd-yyyy')], 'dateutils.sameMonth(day, this.state.currentMonth)dateutils.sameMonth(day, this.state.currentMonth)')
     // }
-    
+
 
     if (!dateutils.sameMonth(day, this.state.currentMonth) && this.props.hideExtraDays) {
       return (<View key={id} style={{ flex: 1 }} />);
@@ -259,7 +283,7 @@ class Calendar extends Component {
   }
 
   render() {
-    console.log(this.props.markedDates, 'this.props.markedDates')
+    console.log(this.props.markedDates, 'this.props.markedDates++++////***/*/*//*')
     const days = dateutils.page(this.state.currentMonth, this.props.firstDay);
     const weeks = [];
     while (days.length) {
