@@ -5,7 +5,7 @@ import {
   View
 } from 'react-native';
 import PropTypes from 'prop-types';
-
+import * as defaultStyle from '../../../style';
 import { shouldUpdate } from '../../../component-updater';
 
 import styleConstructor from './style';
@@ -15,7 +15,7 @@ class Day extends Component {
 
   static propTypes = {
     // TODO: disabled props should be removed
-    state: PropTypes.oneOf(['disabled', 'today', 'isSat', 'isSun', 'isPreviousMonthSat','isPreviousMonthSun','isNextMonthSun','isNextMonthSat','']),
+    state: PropTypes.oneOf(['disabled', 'today', 'isSat', 'isSun', 'isPreviousMonthSat', 'isPreviousMonthSun', 'isNextMonthSun', 'isNextMonthSat', 'isHoliday', '']),
 
     // Specify theme properties to override specific styles for calendar parts. Default = {}
     theme: PropTypes.object,
@@ -52,14 +52,14 @@ class Day extends Component {
       const validDots = marking.dots.filter(d => (d && d.color));
 
       return validDots.map((dot, index) => {
-        console.log(dot,'dddddddddddooooooooooooyyyyy')
+        console.log(dot, 'dddddddddddooooooooooooyyyyy')
         return (
-         
+
           <View key={dot.key ? dot.key : index} style={[baseDotStyle,
-            { backgroundColor: marking.selected && dot.selectedDotColor ? dot.selectedDotColor : dot.color }]} /> 
-            )
-          })
-        }
+            { backgroundColor: marking.selected && dot.selectedDotColor ? dot.selectedDotColor : dot.color }]} />
+        )
+      })
+    }
     // }
     return;
   }
@@ -68,19 +68,19 @@ class Day extends Component {
     console.log(this.style.SatTextStyle)
     const containerStyle = [this.style.base];
     const textStyle = [this.style.text];
-
+    const appStyle = { ...defaultStyle };
     const marking = this.props.marking || {};
     // const isD = typeof marking.isSat !== 'undefined' ? marking.isSat : this.props.state === 'isSat';
     console.log(this.props.state, 'this.props.statethis.props.statethis.props.statethis.props.state');
     const dot = this.renderDots(marking);
+    const dotHome = this.renderDots(marking) != undefined ? dot.length : 0
 
-    console.log(dot,Array.isArray(dot), 'dotdotdotdotdotdotdotdotdotdotdotdotdotdotdot')
+    console.log(dotHome, dot && dot[0], Array.isArray(dot), 'dotdotdotdotdotdotdotdotdotdotdotdotdotdotdot')
     console.log(this.props, 'isDisDisDisDisDisDisDisDisDisD')
     // alert(this.props.state)
     if (marking.selected) {
       containerStyle.push(this.style.selected);
       textStyle.push(this.style.selectedText);
-
       if (marking.selectedColor) {
         containerStyle.push({ backgroundColor: marking.selectedColor });
       }
@@ -121,6 +121,11 @@ class Day extends Component {
       // containerStyle.push(this.style.today);
       textStyle.push(this.style.NextMonthSunTextStyle);
     }
+    else if (this.props.state == 'isHoliday') {
+      console.log('dfbgdfbdfbdfbdfbdfbdfbdfbdfb')
+      // containerStyle.push(this.style.today);
+      textStyle.push(this.style.SunTextStyle);
+    }
 
     return (
       <TouchableOpacity
@@ -129,10 +134,17 @@ class Day extends Component {
         onPress={this.onDayPress}
         onLongPress={this.onDayLongPress}>
         <Text allowFontScaling={false} style={textStyle}>{String(this.props.children)}</Text>
-       {/* { dot.length > 0 && dot.length < 3 &&
-         <View style={{ flexDirection: 'row' }}>{dot}</View> }  */}
+        <View style={{ flexDirection: 'column' }}>
 
-         <View style={{ flexDirection: 'row' }}>{dot}</View>
+          <View style={{ flexDirection: 'row' }}>
+            <View>{dot && dot[0]}</View>
+            <View>{dot && dot[1]}</View>
+          </View>
+          <View style={{ flexDirection: 'row' }}>
+            <View>{dot && dot[2]}</View>
+            <View>{dot && dot[3]}</View>
+          </View>
+        </View>
       </TouchableOpacity>
     );
   }

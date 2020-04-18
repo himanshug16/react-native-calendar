@@ -3,7 +3,8 @@ import { Platform } from 'react-native';
 export const foregroundColor = '#ffffff';
 export const backgroundColor = '#f4f4f4'; // Agenda's reservations bg color
 export const separatorColor = '#e8e9ec'; // not in use
-export const todayBackgroundLitColor= '#FDEFD4';
+// export const todayBackgroundLitColor= '#FDEFD4';
+export const todayBackgroundLitColor= '#ffffff';
 export const processedColor = '#a7e0a3';
 export const processingColor = '#ffce5c';
 export const failedColor = '#f67e7e';
@@ -37,7 +38,8 @@ export const textSectionTitleColor = '#b6c1cd';
 export const selectedDayBackgroundColor = textLinkColor;
 export const selectedDayTextColor = foregroundColor;
 
-export const todayBackgroundColor = todayBackgroundLitColor;
+// export const todayBackgroundColor = todayBackgroundLitColor;
+export const todayBackgroundColor = '#ffffff';
 export const todayTextColor = textLinkColor;
 export const dayTextColor = textDefaultColor;
 export const textDisabledColor = '#d9e1e8';
@@ -56,8 +58,8 @@ export const todayButtonTextColor = textLinkColor;
 export const todayButtonPosition = undefined; // right' / 'left' (default)
 export const SundayTextColor = 'red';
 export const PreviousMonthSundayTextColor = '#ffbebd';
-export const PreviousMonthSaturdayTextColor = '#1569C7';
 // export const PreviousMonthSaturdayTextColor = '#1569C7';
+export const PreviousMonthSaturdayTextColor = 'rgb(39,109,206)';
 export const SaturdayTextColor = 'blue';
 
 export const sundaytextSectionTitleColor = 'red';

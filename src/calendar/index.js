@@ -159,6 +159,10 @@ class Calendar extends Component {
     if (this.props.disabledByDefault) {
       state = 'disabled';
     }
+    else if (this.props.markedDates && this.props.markedDates[day.toString('MM-dd-yyyy')] && this.props.markedDates[day.toString('MM-dd-yyyy')].isHoliday) {
+      state = 'isHoliday'
+      console.log(this.state.currentMonth, day, this.props.markedDates[day.toString('MM-dd-yyyy')], 'dateutils.sameMonthfgbdfbdfbdfbdfbf(day, this.state.currentMonth)dateutils.sameMonth(day, this.state.currentMonth)')
+    }
     else if (this.props.markedDates && this.props.markedDates[day.toString('MM-dd-yyyy')] && this.props.markedDates[day.toString('MM-dd-yyyy')].isPreviousMonthSat) {
       state = 'isPreviousMonthSat'
       console.log(this.state.currentMonth, day, this.props.markedDates[day.toString('MM-dd-yyyy')], 'dateutils.sameMonthfgbdfbdfbdfbdfbf(day, this.state.currentMonth)dateutils.sameMonth(day, this.state.currentMonth)')
