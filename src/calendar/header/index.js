@@ -144,19 +144,21 @@ class CalendarHeader extends Component {
           !this.props.hideDayNames &&
           <View style={this.style.week}>
             {this.props.weekNumbers && <Text allowFontScaling={false} style={this.style.dayHeader}></Text>}
-              {weekDaysNames.map((day, idx) => (
+            {weekDaysNames.map((day, idx) => (
+              <View style={{ borderWidth :0.25,borderTopWidth :0,  borderColor: '#e0e0e0', borderBottomWidth : 0, paddingHorizontal : 13.5,paddingTop :4 }}>
                 <Text
                   allowFontScaling={false}
                   key={idx}
                   accessible={false}
                   style={day == '土' ? this.style.saturdayDayHeader : (day == '日' ? this.style.sundayDayHeader : this.style.dayHeader)}
-                 
+
                   numberOfLines={1}
                   importantForAccessibility='no'
                 >
                   {day}
                 </Text>
-              ))}
+              </View>
+            ))}
           </View>
         }
       </View>
