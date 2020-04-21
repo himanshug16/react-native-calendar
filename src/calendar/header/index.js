@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { ActivityIndicator } from 'react-native';
+import { ActivityIndicator, Platform } from 'react-native';
 import { View, Text, TouchableOpacity, Image } from 'react-native';
 import XDate from 'xdate';
 import PropTypes from 'prop-types';
@@ -145,13 +145,13 @@ class CalendarHeader extends Component {
           <View style={this.style.week}>
             {this.props.weekNumbers && <Text allowFontScaling={false} style={this.style.dayHeader}></Text>}
             {weekDaysNames.map((day, idx) => (
-              <View style={{ borderWidth :0.25,borderTopWidth :0,  borderColor: '#e0e0e0', borderBottomWidth : 0, paddingHorizontal : 13.5,paddingTop :4 }}>
+              <View style={{ borderWidth: 0.25, borderTopWidth: 0, borderColor: '#e0e0e0', borderBottomWidth: 0, borderRightWidth: 0, paddingHorizontal: Platform.OS = 'android' ? 12.8 : 16, paddingTop: 4 }}>
+                {/* // <View style={{ borderWidth :0.25,borderTopWidth :0,  borderColor: '#e0e0e0', borderBottomWidth : 0,borderLeftWidth : 0, paddingRight : 25,paddingTop :4}}> */}
                 <Text
                   allowFontScaling={false}
                   key={idx}
                   accessible={false}
                   style={day == '土' ? this.style.saturdayDayHeader : (day == '日' ? this.style.sundayDayHeader : this.style.dayHeader)}
-
                   numberOfLines={1}
                   importantForAccessibility='no'
                 >

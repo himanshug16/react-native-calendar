@@ -8,7 +8,7 @@ export default function styleConstructor(theme = {}) {
   return StyleSheet.create({
     base: {
       // width: 32,
-      width: Platform.OS == 'android' ? 53 : 58  ,
+      width: Platform.OS == 'android' ? 54 : 58  ,
       // height: 32,
       height: 55,
       borderWidth: 0.4,

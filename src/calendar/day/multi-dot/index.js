@@ -73,9 +73,9 @@ class Day extends Component {
     // const isD = typeof marking.isSat !== 'undefined' ? marking.isSat : this.props.state === 'isSat';
     console.log(this.props.state, 'this.props.statethis.props.statethis.props.statethis.props.state');
     const dot = this.renderDots(marking);
-    const dotHome = this.renderDots(marking) != undefined ? dot.length : 0
+    // const dotHome = dot != undefined ? dot.length : 0
 
-    console.log(dotHome, dot && dot[0], Array.isArray(dot), 'dotdotdotdotdotdotdotdotdotdotdotdotdotdotdot')
+    // console.log(dotHome, dot && dot[0], Array.isArray(dot), 'dotdotdotdotdotdotdotdotdotdotdotdotdotdotdot')
     console.log(this.props, 'isDisDisDisDisDisDisDisDisDisD')
     // alert(this.props.state)
     if (marking.selected) {
@@ -145,6 +145,14 @@ class Day extends Component {
             <View>{dot && dot[3]}</View>
           </View>
         </View>
+       
+
+          {/* <View style={{ flexDirection: 'row' }}>
+            <View>{dot}</View>
+           
+          </View> */}
+         
+        
       </TouchableOpacity>
     );
   }
