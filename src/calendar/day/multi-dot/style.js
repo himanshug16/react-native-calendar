@@ -8,7 +8,12 @@ export default function styleConstructor(theme = {}) {
   return StyleSheet.create({
     base: {
       // width: 32,
-      width: Platform.OS == 'android' ? 54 : 58  ,
+      // width: Platform.OS == 'android' ? 30 : 58  ,
+      ...Platform.select({
+        ios: { width: 58.5},
+        android: {width: 52}
+      }),
+      // width: 52,
       // height: 32,
       height: 55,
       borderWidth: 0.4,
@@ -16,13 +21,15 @@ export default function styleConstructor(theme = {}) {
       borderTopWidth: 0,
       borderRightWidth: 0,
       borderColor: '#e0e0e0',
+      resizeMode: 'contain'
       // alignItems: 'center'
     },
+
     text: {
       marginTop: 4,
       marginLeft: 4,
       // fontSize: appStyle.textDayFontSize,
-      fontSize : 13,
+      fontSize: 13,
       fontFamily: appStyle.textDayFontFamily,
       fontWeight: appStyle.textDayFontWeight,
       color: appStyle.dayTextColor,
