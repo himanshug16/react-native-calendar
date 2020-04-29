@@ -10,7 +10,7 @@ export default function styleConstructor(theme = {}) {
       // width: 32,
       // width: Platform.OS == 'android' ? 30 : 58  ,
       ...Platform.select({
-        ios: { width: 58.5},
+        ios: { width: 58},
         android: {width: 52}
       }),
       // width: 52,
@@ -24,7 +24,20 @@ export default function styleConstructor(theme = {}) {
       resizeMode: 'contain'
       // alignItems: 'center'
     },
-
+    // androidBase: {
+    //   // width: 32,
+    //   // width: Platform.OS == 'android' ? 30 : 58  ,
+    //   width: 58,
+    //   // height: 32,
+    //   height: 55,
+    //   borderWidth: 0.4,
+    //   // border
+    //   borderTopWidth: 0,
+    //   borderRightWidth: 0,
+    //   borderColor: '#e0e0e0',
+    //   resizeMode: 'contain'
+    //   // alignItems: 'center'
+    // },
     text: {
       marginTop: 4,
       marginLeft: 4,

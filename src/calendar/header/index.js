@@ -145,7 +145,7 @@ class CalendarHeader extends Component {
           <View style={this.style.week}>
             {this.props.weekNumbers && <Text allowFontScaling={false} style={this.style.dayHeader}></Text>}
             {weekDaysNames.map((day, idx) => (
-              <View style={{ borderWidth: 0.25, borderTopWidth: 0, borderColor: '#e0e0e0', borderBottomWidth: 0, borderRightWidth: 0, paddingHorizontal: Platform.OS = 'android' ? 12.8 : 16, paddingTop: 4 }}>
+              <View style={{ borderWidth: 0.25, borderTopWidth: 0, borderColor: '#e0e0e0', borderBottomWidth: 0, borderRightWidth: 0, paddingHorizontal: Platform.OS = 'android' ? 12.8 : 14, paddingTop: 4 }}>
                 {/* // <View style={{ borderWidth :0.25,borderTopWidth :0,  borderColor: '#e0e0e0', borderBottomWidth : 0,borderLeftWidth : 0, paddingRight : 25,paddingTop :4}}> */}
                 <Text
                   allowFontScaling={false}

@@ -38,7 +38,7 @@ export default function(theme={}) {
     },
     week: {
       // marginTop: 7,
-      borderBottomWidth : 1,
+      borderBottomWidth : 0.5,
       borderColor : '#e0e0e0',
       flexDirection: 'row',
       justifyContent: 'space-around'
