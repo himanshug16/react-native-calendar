@@ -56,10 +56,11 @@ export const agendaTodayColor = textLinkColor;
 export const agendaKnobColor = Platform.OS === 'ios' ? '#f2F4f5' : '#4ac4f7';
 export const todayButtonTextColor = textLinkColor;
 export const todayButtonPosition = undefined; // right' / 'left' (default)
-export const SundayTextColor = 'red';
+// export const SundayTextColor = 'red';
+export const SundayTextColor = '#ff4c4c';
 export const PreviousMonthSundayTextColor = '#ffbebd';
 // export const PreviousMonthSaturdayTextColor = '#1569C7';
-export const PreviousMonthSaturdayTextColor = 'rgb(39,109,206)';
-export const SaturdayTextColor = 'blue';
+export const PreviousMonthSaturdayTextColor = '#7266ff';
+export const SaturdayTextColor = '#5b4cff';
 
 export const sundaytextSectionTitleColor = 'red';

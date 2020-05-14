@@ -1,8 +1,13 @@
-import { StyleSheet, Platform } from 'react-native';
+import { StyleSheet, Dimensions, Platform } from 'react-native';
 import * as defaultStyle from '../../../style';
 
 const STYLESHEET_ID = 'stylesheet.day.multiDot';
+const window = Dimensions.get('window');
 
+// The vertical resolution of the screen.
+const screenHeight = window.height;
+const screenWidth = window.width;
+console.log(screenWidth, 'screenWidthscreenWidthscreenWidthscreenWidth')
 export default function styleConstructor(theme = {}) {
   const appStyle = { ...defaultStyle, ...theme };
   return StyleSheet.create({
@@ -10,38 +15,23 @@ export default function styleConstructor(theme = {}) {
       // width: 32,
       // width: Platform.OS == 'android' ? 30 : 58  ,
       ...Platform.select({
-        ios: { width: 58},
-        android: {width: 52}
+        ios: screenHeight < 750 ? { width: 54 } : { width: 59 },
+        android: screenWidth < 400 ?  { width: 52 } : { width: 59 }
       }),
       // width: 52,
-      // height: 32,
+      // height: 32,  
       height: 55,
-      borderWidth: 0.4,
-      // border
-      borderTopWidth: 0,
-      borderRightWidth: 0,
+      borderWidth: 0.25,
+      // borderTopWidth: 0,
+      // borderRightWidth: 0,
+      // borderLeftWidth: 0,
       borderColor: '#e0e0e0',
       resizeMode: 'contain'
-      // alignItems: 'center'
     },
-    // androidBase: {
-    //   // width: 32,
-    //   // width: Platform.OS == 'android' ? 30 : 58  ,
-    //   width: 58,
-    //   // height: 32,
-    //   height: 55,
-    //   borderWidth: 0.4,
-    //   // border
-    //   borderTopWidth: 0,
-    //   borderRightWidth: 0,
-    //   borderColor: '#e0e0e0',
-    //   resizeMode: 'contain'
-    //   // alignItems: 'center'
-    // },
+
     text: {
       marginTop: 4,
       marginLeft: 4,
-      // fontSize: appStyle.textDayFontSize,
       fontSize: 13,
       fontFamily: appStyle.textDayFontFamily,
       fontWeight: appStyle.textDayFontWeight,
