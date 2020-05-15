@@ -19,7 +19,7 @@ import { SELECT_DATE_SLOT } from '../testIDs';
 //Fallback when RN version is < 0.44
 const viewPropTypes = ViewPropTypes || View.propTypes;
 const EmptyArray = [];
-
+const WEEKS_HEIGHT = 72;
 /**
  * @description: Calendar component
  * @example: https://github.com/wix/react-native-calendars/blob/master/example/src/screens/calendars.js
@@ -77,7 +77,9 @@ class Calendar extends Component {
     /** Handler which gets executed when press arrow icon left. It receive a callback can go next month */
     onPressArrowRight: PropTypes.func,
     /** Style passed to the header */
-    headerStyle: PropTypes.oneOfType([PropTypes.object, PropTypes.number, PropTypes.array])
+    headerStyle: PropTypes.oneOfType([PropTypes.object, PropTypes.number, PropTypes.array]),
+    // Enable dynamic height based on number of weeks
+    dynamicHeight: PropTypes.bool,
   };
 
   constructor(props) {
@@ -288,6 +290,7 @@ class Calendar extends Component {
 
   render() {
     console.log(this.props.markedDates, 'this.props.markedDates++++////***/*/*//*')
+    const { dynamicHeight } = this.props;
     const days = dateutils.page(this.state.currentMonth, this.props.firstDay);
     const weeks = [];
     while (days.length) {
@@ -303,9 +306,9 @@ class Calendar extends Component {
         indicator = true;
       }
     }
-
+    const customHeightStyle = dynamicHeight ? { height: weeks.length * WEEKS_HEIGHT } : {};
     return (
-      <View style={[this.style.container, this.props.style]}>
+      <View style={[this.style.container, this.props.style,customHeightStyle]}>
         <CalendarHeader
           style={this.props.headerStyle}
           theme={this.props.theme}
