@@ -309,7 +309,7 @@ class Calendar extends Component {
     const customHeightStyle = dynamicHeight ? { height: weeks.length * WEEKS_HEIGHT } : {};
     return (
       <View style={[this.style.container, this.props.style,customHeightStyle]}>
-        <CalendarHeader
+        {/* <CalendarHeader
           style={this.props.headerStyle}
           theme={this.props.theme}
           hideArrows={this.props.hideArrows}
@@ -323,7 +323,7 @@ class Calendar extends Component {
           weekNumbers={this.props.showWeekNumbers}
           onPressArrowLeft={this.props.onPressArrowLeft}
           onPressArrowRight={this.props.onPressArrowRight}
-        />
+        /> */}
         <View style={this.style.monthView}>{weeks}</View>
       </View>);
   }

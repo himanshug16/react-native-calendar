@@ -20,9 +20,8 @@ export default function styleConstructor(theme = {}) {
       }),
       // width: 52,
       // height: 32,  
-      height: 52,
+      height: 56,
       // height: 62,
-
       borderWidth: 0.25,
       // borderTopWidth: 0,
       // borderRightWidth: 0,

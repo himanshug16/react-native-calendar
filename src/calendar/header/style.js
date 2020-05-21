@@ -22,6 +22,7 @@ export default function(theme={}) {
       color: appStyle.monthTextColor,
       margin: 10
     },
+    
     arrow: {
       padding: 10,
       ...appStyle.arrowStyle
@@ -48,7 +49,7 @@ export default function(theme={}) {
       marginBottom: 7,
       width: 32,
       textAlign: 'center',
-      fontSize: appStyle.textDayHeaderFontSize,
+      fontSize: 11,
       fontFamily: appStyle.textDayHeaderFontFamily,
       fontWeight: appStyle.textDayHeaderFontWeight,
       color: appStyle.textSectionTitleColor
@@ -58,7 +59,7 @@ export default function(theme={}) {
       marginBottom: 7,
       width: 32,
       textAlign: 'center',
-      fontSize: appStyle.textDayHeaderFontSize,
+      fontSize: 11,
       fontFamily: appStyle.textDayHeaderFontFamily,
       fontWeight: appStyle.textDayHeaderFontWeight,
       color: 'red'},
@@ -67,7 +68,7 @@ export default function(theme={}) {
       marginBottom: 7,
       width: 32,
       textAlign: 'center',
-      fontSize: appStyle.textDayHeaderFontSize,
+      fontSize: 11,
       fontFamily: appStyle.textDayHeaderFontFamily,
       fontWeight: appStyle.textDayHeaderFontWeight,
       color: 'blue'},
