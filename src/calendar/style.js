@@ -7,17 +7,16 @@ export default function getStyle(theme={}) {
   const appStyle = {...defaultStyle, ...theme};
   return StyleSheet.create({
     container: {
-      // paddingLeft: 5,
-      // paddingRight: 5,
-      // width: '90%',
-      borderWidth :0.4,
-      // borderTopWidth : 0,
-      borderBottomWidth :0,
-      borderColor :'#e0e0e0',
+      // borderWidth :0.4,
+      // borderWidth :2,
+      // borderColor : 'green',
+      // borderBottomWidth :0,
+      // borderColor :'#e0e0e0',
       backgroundColor: appStyle.calendarBackground
     },
     monthView: {
-      backgroundColor: appStyle.calendarBackground
+      backgroundColor: appStyle.calendarBackground,
+      // borderWidth: 2, borderColor :'orange'
     },
     week: {
       // marginTop: 7,

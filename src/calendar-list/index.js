@@ -111,6 +111,7 @@ class CalendarList extends Component {
   }
 
   scrollToDay(d, offset, animated) {
+    console.log('scrolltomonth')
     const day = parseDate(d);
     const diffMonths = Math.round(this.state.openDate.clone().setDate(1).diffMonths(day.clone().setDate(1)));
     const size = this.props.horizontal ? this.props.calendarWidth : this.props.calendarHeight;
@@ -135,7 +136,9 @@ class CalendarList extends Component {
     const scrollTo = month || this.state.openDate;
     let diffMonths = Math.round(this.state.openDate.clone().setDate(1).diffMonths(scrollTo.clone().setDate(1)));
     const size = this.props.horizontal ? this.props.calendarWidth : this.props.calendarHeight;
+    console.log(size,'sizesizesizesizesizesizesizesizesizesizesizesizesize')
     const scrollAmount = (size * this.props.pastScrollRange) + (diffMonths * size);
+    console.log(scrollAmount,'scrollAmountscrollAmountscrollAmountscrollAmountscrollAmountscrollAmount')
 
     this.listView.scrollToOffset({offset: scrollAmount, animated: false});
   }
@@ -165,6 +168,7 @@ class CalendarList extends Component {
   }
 
   onViewableItemsChanged({viewableItems}) {
+    console.log(viewableItems,'viewableItemsviewableItemsviewableItemsviewableItems')
     function rowIsCloseToViewable(index, distance) {
       for (let i = 0; i < viewableItems.length; i++) {
         if (Math.abs(index - parseInt(viewableItems[i].index)) <= distance) {
@@ -183,7 +187,9 @@ class CalendarList extends Component {
       const rowShouldBeRendered = rowIsCloseToViewable(i, 1);
       
       if (rowShouldBeRendered && !rowclone[i].getTime) {
-        val = this.state.openDate.clone().addMonths(i - this.props.pastScrollRange, true);
+        // diffMonths(scrollTo.clone().setDate(1)))
+        val = this.state.openDate.clone().setDate(1).addMonths(i - this.props.pastScrollRange, true);
+        // val = this.state.openDate.clone().addMonths(i - this.props.pastScrollRange, true);
       } else if (!rowShouldBeRendered) {
         val = this.state.texts[i];
       }
@@ -208,6 +214,7 @@ class CalendarList extends Component {
   }
 
   renderCalendar({item}) {
+    console.log(item,'renderCalendarrenderCalendarrenderCalendarrenderCalendarrenderCalendar')
     return (
       <CalendarListItem
         scrollToMonth={this.scrollToMonth.bind(this)}
@@ -221,6 +228,7 @@ class CalendarList extends Component {
   }
 
   getItemLayout(data, index) {
+    console.log(index,'data,indexdata,indexdata,indexdata,index')
     return {
       length: this.props.horizontal ? this.props.calendarWidth : this.props.calendarHeight, 
       offset: (this.props.horizontal ? this.props.calendarWidth : this.props.calendarHeight) * index, index
@@ -228,6 +236,7 @@ class CalendarList extends Component {
   }
 
   getMonthIndex(month) {
+    console.log(month,'monthmonthmonthmonthmonthmonthmonthmonth==s')
     let diffMonths = this.state.openDate.diffMonths(month) + this.props.pastScrollRange;
     return diffMonths;
   }
@@ -291,9 +300,11 @@ class CalendarList extends Component {
 
   render() {
     return (
-      <View>
+      // <View>
+      <React.Fragment>
+
         <FlatList
-          onLayout={this.onLayout}
+          // onLayout={this.onLayout}
           ref={(c) => this.listView = c}
           //scrollEventThrottle={1000}
           style={[this.style.container, this.props.style]}
@@ -312,12 +323,13 @@ class CalendarList extends Component {
           showsHorizontalScrollIndicator={this.props.showScrollIndicator}
           scrollEnabled={this.props.scrollEnabled}
           keyExtractor={(item, index) => String(index)}
-          initialScrollIndex={this.state.openDate ? this.getMonthIndex(this.state.openDate) : false}
-          getItemLayout={this.getItemLayout}
+          // initialScrollIndex={this.state.openDate ? this.getMonthIndex(this.state.openDate) : false}
+          // getItemLayout={this.getItemLayout}
           scrollsToTop={this.props.scrollsToTop}
         />
         {this.renderStaticHeader()}
-      </View>
+      {/* </View> */}
+      </React.Fragment>
     );
   }
 }

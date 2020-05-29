@@ -19,7 +19,8 @@ import { SELECT_DATE_SLOT } from '../testIDs';
 //Fallback when RN version is < 0.44
 const viewPropTypes = ViewPropTypes || View.propTypes;
 const EmptyArray = [];
-const WEEKS_HEIGHT = 72;
+// const WEEKS_HEIGHT = 72;
+const WEEKS_HEIGHT = 55;
 /**
  * @description: Calendar component
  * @example: https://github.com/wix/react-native-calendars/blob/master/example/src/screens/calendars.js
@@ -272,6 +273,7 @@ class Calendar extends Component {
   }
 
   renderWeekNumber(weekNumber) {
+    console.log(weekNumber, 'weekNumberweekNumberweekNumberweekNumberweekNumber')
     return <Day key={`week-${weekNumber}`} theme={this.props.theme} marking={{ disableTouchEvent: true }} state='disabled'>{weekNumber}</Day>;
   }
 
@@ -287,6 +289,13 @@ class Calendar extends Component {
 
     return (<View style={this.style.week} key={id}>{week}</View>);
   }
+  find_dimesions(layout) {
+    const { x, y, width, height } = layout;
+    console.log(x,'xxxxxxxxxxxxxxxxxxxxxxxxxxxxx');
+    console.log(y);
+    console.log(width);
+    console.log(height);
+  }
 
   render() {
     console.log(this.props.markedDates, 'this.props.markedDates++++////***/*/*//*')
@@ -297,6 +306,7 @@ class Calendar extends Component {
       weeks.push(this.renderWeek(days.splice(0, 7), weeks.length));
     }
 
+    console.log(weeks.length, 'weeks.lengthweeks.lengthweeks.length')
     let indicator;
     const current = parseDate(this.props.current);
     if (current) {
@@ -307,26 +317,30 @@ class Calendar extends Component {
       }
     }
     const customHeightStyle = dynamicHeight ? { height: weeks.length * WEEKS_HEIGHT } : {};
+    console.log(customHeightStyle, 'customHeightStylecustomHeightStylecustomHeightStylecustomHeightStyle')
     return (
-      <View style={[this.style.container, this.props.style,customHeightStyle]}>
-        {/* <CalendarHeader
-          style={this.props.headerStyle}
-          theme={this.props.theme}
-          hideArrows={this.props.hideArrows}
-          month={this.state.currentMonth}
-          addMonth={this.addMonth}
-          showIndicator={indicator}
-          firstDay={this.props.firstDay}
-          renderArrow={this.props.renderArrow}
-          monthFormat={this.props.monthFormat}
-          hideDayNames={this.props.hideDayNames}
-          weekNumbers={this.props.showWeekNumbers}
-          onPressArrowLeft={this.props.onPressArrowLeft}
-          onPressArrowRight={this.props.onPressArrowRight}
-        /> */}
-        <View style={this.style.monthView}>{weeks}</View>
-      </View>);
+      
+        <View onLayout={(event) => { this.find_dimesions(event.nativeEvent.layout) }} style={[this.style.monthView,this.props.style,customHeightStyle]}>{weeks}</View>
+      );
   }
 }
 
 export default Calendar;
+{/* <View style={[this.style.container, this.props.style]}> */}
+{/* <CalendarHeader
+  style={this.props.headerStyle}
+  theme={this.props.theme}
+  hideArrows={this.props.hideArrows}
+  month={this.state.currentMonth}
+  addMonth={this.addMonth}
+  showIndicator={indicator}
+  firstDay={this.props.firstDay}
+  renderArrow={this.props.renderArrow}
+  monthFormat={this.props.monthFormat}
+  hideDayNames={this.props.hideDayNames}
+  weekNumbers={this.props.showWeekNumbers}
+  onPressArrowLeft={this.props.onPressArrowLeft}
+  onPressArrowRight={this.props.onPressArrowRight}
+/> */}
+{/* <View onLayout={(event) => { this.find_dimesions(event.nativeEvent.layout) }} style={[this.style.monthView]}>{weeks}</View> */}
+// </View>
