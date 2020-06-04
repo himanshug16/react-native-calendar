@@ -302,16 +302,15 @@ class CalendarList extends Component {
     return (
       // <View>
       <React.Fragment>
-
         <FlatList
-          // onLayout={this.onLayout}
+          onLayout={this.onLayout}
           ref={(c) => this.listView = c}
-          //scrollEventThrottle={1000}
+          scrollEventThrottle={1000}
           style={[this.style.container, this.props.style]}
           initialListSize={this.props.pastScrollRange + this.props.futureScrollRange + 1}
           data={this.state.rows}
-          //snapToAlignment='start'
-          //snapToInterval={this.calendarHeight}
+          snapToAlignment='start'
+          snapToInterval={this.calendarHeight}
           removeClippedSubviews={this.props.removeClippedSubviews}
           pageSize={1}
           horizontal={this.props.horizontal}
@@ -323,8 +322,8 @@ class CalendarList extends Component {
           showsHorizontalScrollIndicator={this.props.showScrollIndicator}
           scrollEnabled={this.props.scrollEnabled}
           keyExtractor={(item, index) => String(index)}
-          // initialScrollIndex={this.state.openDate ? this.getMonthIndex(this.state.openDate) : false}
-          // getItemLayout={this.getItemLayout}
+          initialScrollIndex={this.state.openDate ? this.getMonthIndex(this.state.openDate) : false}
+          getItemLayout={this.getItemLayout}
           scrollsToTop={this.props.scrollsToTop}
         />
         {this.renderStaticHeader()}

@@ -291,7 +291,7 @@ class Calendar extends Component {
   }
   find_dimesions(layout) {
     const { x, y, width, height } = layout;
-    console.log(x,'xxxxxxxxxxxxxxxxxxxxxxxxxxxxx');
+    console.log(x, 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxx');
     console.log(y);
     console.log(width);
     console.log(height);
@@ -319,14 +319,30 @@ class Calendar extends Component {
     const customHeightStyle = dynamicHeight ? { height: weeks.length * WEEKS_HEIGHT } : {};
     console.log(customHeightStyle, 'customHeightStylecustomHeightStylecustomHeightStylecustomHeightStyle')
     return (
-      
-        <View onLayout={(event) => { this.find_dimesions(event.nativeEvent.layout) }} style={[this.style.monthView,this.props.style,customHeightStyle]}>{weeks}</View>
+      <View style={[this.style.container, this.props.style]}>
+      <CalendarHeader
+        style={this.props.headerStyle}
+        theme={this.props.theme}
+        hideArrows={this.props.hideArrows}
+        month={this.state.currentMonth}
+        addMonth={this.addMonth}
+        showIndicator={indicator}
+        firstDay={this.props.firstDay}
+        renderArrow={this.props.renderArrow}
+        monthFormat={this.props.monthFormat}
+        hideDayNames={this.props.hideDayNames}
+        weekNumbers={this.props.showWeekNumbers}
+        onPressArrowLeft={this.props.onPressArrowLeft}
+        onPressArrowRight={this.props.onPressArrowRight}
+      />
+      <View onLayout={(event) => { this.find_dimesions(event.nativeEvent.layout) }} style={[this.style.monthView, this.props.style, customHeightStyle]}>{weeks}</View>
+      </View>
       );
   }
 }
 
 export default Calendar;
-{/* <View style={[this.style.container, this.props.style]}> */}
+{/* <View style={[this.style.container, this.props.style]}> */ }
 {/* <CalendarHeader
   style={this.props.headerStyle}
   theme={this.props.theme}
@@ -342,5 +358,5 @@ export default Calendar;
   onPressArrowLeft={this.props.onPressArrowLeft}
   onPressArrowRight={this.props.onPressArrowRight}
 /> */}
-{/* <View onLayout={(event) => { this.find_dimesions(event.nativeEvent.layout) }} style={[this.style.monthView]}>{weeks}</View> */}
+{/* <View onLayout={(event) => { this.find_dimesions(event.nativeEvent.layout) }} style={[this.style.monthView]}>{weeks}</View> */ }
 // </View>
